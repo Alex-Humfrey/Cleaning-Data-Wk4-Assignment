@@ -81,7 +81,7 @@ colnames(select_variables) <- c("subject_id", "activity", var_names )
 new_data <- group_by(select_variables, subject_id, activity)
 
 # calculate average for each variable for each subject and each activity
-group_averages <- summarise_at(new_data, .vars= vars("tBodyAcc-mean()-X":"fBodyBodyGyroJerkMag-std()"), mean)
+group_averages <- summarise_at(new_data, .vars= vars("tBodyAcc-mean()-X":"fBodyBodyGyroJerkMag-std()"), list(Average = mean))
 #str(Group_Averages)
 
 rm("features", "features1", "features2", "features3", "complete_df", "new_data")
